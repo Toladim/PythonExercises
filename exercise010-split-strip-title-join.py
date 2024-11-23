@@ -14,8 +14,6 @@ def normalize_string(text):
     text = text.split(",")
     text = [item.strip() for item in text]
     sorted_text = ", ".join(sorted(text))
-    print(sorted_text)
-    #sorted_text = sorted_text.split(", ")
     return sorted_text
 
 print(normalize_string(input_text))
