@@ -5,12 +5,6 @@ For example, 13 is a divisor of 26 because 26 / 13 has no remainder.)"""
 
 def find_divisors(num):
     return [i for i in range(1, num+1) if num % i == 0]
-    
-    """temp = []
-    for i in range (1, num+1):
-        if num % i == 0:
-            temp.append(i)
-    return temp"""
             
 user_input = int(input("Type some number: "))
 

@@ -9,7 +9,7 @@ def normalize_string(text):
     return text
 
 input_text_1 = input("Type first word to compare: ")
-input_text_2 = input("Type first word to compare: ")
+input_text_2 = input("Type second word to compare: ")
 
 normalized_text_01 = normalize_string(input_text_1)
 normalized_text_02 = normalize_string(input_text_2)
