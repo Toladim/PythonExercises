@@ -15,8 +15,12 @@ For weak passwords, pick a word or two from a list."""
 import random
 import string
 
-def generate_password(lenght):
+def generate_password(lenght, difficult):
+
     sequence = (string.ascii_lowercase) * 2 + (string.ascii_uppercase) * 2 + string.digits + string.punctuation
     return "".join(random.choice(sequence) for _ in range(lenght))
+while True:
+    input_difficult = ("Type how difficult password could be(easy/medium/hard): ")
+    #if input_difficult == 
 
 print(generate_password(15))
