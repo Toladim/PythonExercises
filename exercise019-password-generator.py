@@ -15,12 +15,33 @@ For weak passwords, pick a word or two from a list."""
 import random
 import string
 
-def generate_password(lenght, difficult):
+def generate_password(difficulty):
+    if difficulty == "easy":
+        length = random.randint(5,9)
+        sequence = (string.ascii_lowercase) * 3 + string.ascii_uppercase + string.digits
+    elif difficulty == "medium":
+        length = random.randint(8,12)
+        sequence = (string.ascii_lowercase) * 3 + (string.ascii_uppercase) * 2 + string.digits + string.punctuation
+    elif difficulty == "hard":
+        length = random.randint(11,15)
+        sequence = string.ascii_lowercase + string.ascii_uppercase + string.digits + string.punctuation
+    else:
+        raise ValueError("Invalid difficulty level")
 
-    sequence = (string.ascii_lowercase) * 2 + (string.ascii_uppercase) * 2 + string.digits + string.punctuation
-    return "".join(random.choice(sequence) for _ in range(lenght))
-while True:
-    input_difficult = ("Type how difficult password could be(easy/medium/hard): ")
-    #if input_difficult == 
+    return "".join(random.choice(sequence) for _ in range(length))
 
-print(generate_password(15))
+def main():
+    valid_difficulties = ["easy", "medium", "hard"]
+    while True:
+        password_difficulty = input("Type how difficult password should be (easy/medium/hard): ").lower()
+        if password_difficulty in valid_difficulties:
+            password = generate_password(password_difficulty)
+            print(f"That's your {password_difficulty} password: {password}")
+            break
+        else:
+            print(f"Invalid input. Please choose one of the following: {', '.join(valid_difficulties)}.")
+
+
+if __name__ == "__main__":
+    main()
+
