@@ -12,13 +12,13 @@ def binary_search(arr, target):
     while low <= high:
         mid = (low + high) // 2
         if arr[mid] == target:
-            return mid
+            return True
         elif arr[mid] < target:
             low = mid + 1
         else:
             high = mid - 1
-    return -1
+    return False
 
 
 exemple = [1, 3, 5, 30, 42, 43, 500]
-print(binary_search(exemple, 500))
+print(binary_search(exemple, 5))
