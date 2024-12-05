@@ -2,27 +2,27 @@ class BankAccount:
     def __init__(self, account_number, owner):
         self.account_number = account_number
         self.owner = owner
-        self.balance = 0.0
+        self.balance = 0.00
     
     def deposit(self, amount):
         if amount <=0:
-            print("Error: Insufficient funds to deposit")
+            print("Error: Deposit amount must be greater than zero.")
         else:
             self.balance += amount
-            print(f"An amount of {amount}$ has been deposited")
+            print(f"An amount of {amount}$ has been deposited to account: {self.account_number}. Balance: {self.balance}")
 
     def withdraw(self, amount):
         if amount <=0:
-            print("Error: Insufficient funds to withdraw")
+            print("Error: Withdrawal amount must be greater than zero.")
         else:
             if self.balance < amount:
                 print("Error: Not enough funds in the account.")
             else:
                 self.balance -= amount
-                print(f"An amount of {amount}$ has been withdrawn")
+                print(f"An amount of {amount}$ has been withdrawn to account: {self.account_number}. Balance: {self.balance}")
 
     def show_balance(self):
-        print(self.balance)
+        print(f"Account {self.account_number} owned by {self.owner} has a balance of {self.balance}$")
 
 class Bank:
     def __init__(self):
@@ -33,32 +33,36 @@ class Bank:
         print(f"Added new account: {account.account_number}")
     
     def find_account(self, search_num):
-        found = False
         for account in self.accounts:
-            if str(search_num) in str(account.account_number):
-                print(f"{account.owner} - {account.account_number} - Balance: {account.balance}")
-                found = True
-        if not found:
-            print("No account matching the search was found.")
+            if account.account_number == search_num:
+                print(f"Account found: {account.owner} - {account.account_number} - Balance: {account.balance}$")
+                return account
+        print("No account matching the search was found.")
+        return None
 
-    #TO DO - przepisac funkcje transfer z uzyciem funkcji find_account
     def transfer(self, from_account, to_account, amount):
         if amount <=0:
-            print("Error: Insufficient funds to transfer")
+            print("Error: Transfer amount must be greater than zero.")
+            return
+
+        sender = self.find_account(from_account)
+        recipient = self.find_account(to_account)
+        
+        if not sender:
+            print(f"Error: Sender account {from_account} not found.")
+        elif not recipient:
+            print(f"Error: Recipient account {to_account} not found.")
+        elif sender.balance < amount:
+            print(f"Error: Not enough funds in sender's account {from_account}.")
         else:
-            for s_account in self.accounts:
-                if s_account.account_number != from_account:
-                    print("We could not locate the sender's account. Please verify the account details and try again.!")
-                else:
-                    if s_account.balance < amount:
-                        print("Not enough funds in the sender's account.")
-                    else:
-                        for r_account in self.accounts:
-                            if r_account != to_account:
-                                print("We could not locate the recipient's account. Please verify the account details and try again.!")
-                            else:
-                                s_account.withdraw(amount)
-                                r_account.deposit(amount)
+            sender.withdraw(amount)
+            recipient.deposit(amount)
+            print(f"Successfully transferred {amount}$ from account {from_account} to account {to_account}.")
+
+            
+ 
+                   
+                
 
 
 ba1 = BankAccount(11111, "Jan Kowalski")
@@ -95,10 +99,10 @@ bank.add_account(ba4)
 bank.add_account(ba5)
 
 bank.find_account(22222)
-"""bank.transfer(11111, 22222, 5000)
-bank.transfer(22222, 33333, 200)
-bank.transfer(33333, 44444, -200)
+bank.transfer(11111, 22222, 200)
+bank.transfer(22222, 33333, 3000)
+bank.transfer(33333, 44444, -500)
 bank.transfer(44444, 55555, 0)
 bank.transfer(55555, 11111, 222)
-"""
+
 
