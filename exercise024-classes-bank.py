@@ -47,7 +47,7 @@ class Bank:
 
         sender = self.find_account(from_account)
         recipient = self.find_account(to_account)
-        
+
         if not sender:
             print(f"Error: Sender account {from_account} not found.")
         elif not recipient:
