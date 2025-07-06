@@ -10,4 +10,15 @@ def replace_vowels(text: str) -> str:
             new_text += char
     return new_text
 
+def censor_text(text: str, censored_chars: list[str]) -> str:
+    new_text = ""
+    for char in text:
+        if char.lower() in censored_chars:
+            new_text += "*"
+        else:
+            new_text += char
+    return new_text
+
+
 print(replace_vowels("hello world"))
+print(censor_text("Kocham programowanie", ["a", "o", "g"]))
