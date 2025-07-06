@@ -1,0 +1,1 @@
+# Napisz funkcję, która przyjmie listę liczb i zwróci nową listę zawierającą tylko liczby pierwsze.
