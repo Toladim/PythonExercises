@@ -6,3 +6,4 @@ def label_parity(nums: list[int]) -> list[str]:
 
 
 print(label_parity([1, 2, 3, 4, 5]))
+
