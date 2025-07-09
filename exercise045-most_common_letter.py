@@ -6,10 +6,6 @@ def most_common_letter(text: str) -> str:
         if char.isalpha():
             char = char.lower()
             letters_common[char] = letters_common.get(char, 0) + 1
-            # if char in letters_common:
-            #     letters_common[char] =+ 1
-            # else:
-            #     letters_common[char] = 1
     return max(letters_common,key=letters_common.get)
     
 
