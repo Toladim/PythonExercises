@@ -10,4 +10,4 @@ def group_by_first_letter(words: list[str]) -> dict[str, list[str]]:
         grouped_words[word[0].lower()].append(word)
     return grouped_words
 
-print(group_by_first_letter(["Apple", "ant", "Ball", "banana", "cat", "Car"]))
+group_by_first_letter(["Apple", "ant", "Ball", "banana", "cat", "Car"])

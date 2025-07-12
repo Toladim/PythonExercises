@@ -5,7 +5,7 @@
 from exercise056_group_by_first_letter import group_by_first_letter
 
 def sort_groups(words_dict: dict[str, list[str]]) -> dict[str, list[str]]:
-    return {}
+    return {first_letter: sorted(words, key=str.lower) for first_letter, words in words_dict.items()}
 
 
 groups = group_by_first_letter(["Apple","Olgiert", "Car", "ant", "Ball", "banana", "cat"])
