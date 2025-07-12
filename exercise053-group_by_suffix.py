@@ -10,9 +10,6 @@ def group_by_suffix(words: list[str]) -> dict[str, list[str]]:
         if word[-2:] not in suffix_groups:
             suffix_groups[word[-2:]] = []
         suffix_groups[word[-2:]].append(word)
-
     return suffix_groups
-        
-    
         
 print(group_by_suffix(["king", "ring", "cat", "hat", "thing", "bat", "fling"]))
