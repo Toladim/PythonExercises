@@ -16,8 +16,11 @@ def change_files_names():
     for folder_path, _, files in os.walk("."):
         for filename in files:
             if "-" in filename:
-                new_name = filename.replace("-", "_")
-                os.rename(filename, new_name)
-                print(filename)
+                old_path = os.path.join(folder_path, filename)
+                new_filename = filename.replace("-", "_")
+                new_path = os.path.join(folder_path, new_filename)
+
+                os.rename(old_path, new_path)
+                print(f"Zmieniono: {old_path} → {new_path}")
 
 change_files_names()
