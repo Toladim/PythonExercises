@@ -46,6 +46,7 @@ class Library:
     
     def sort_books_by_author(self) -> list[Book]:
         return sorted(self.books, key=lambda book: book.authors[0].lower() if book.authors else "")
+    
 book1 = Book("1984", ["George Orwell"])
 book2 = Book("Animal Farm", ["George Orwell"])
 book3 = Book("Brave New World", ["Aldous Huxley"])
