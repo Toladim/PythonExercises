@@ -6,4 +6,4 @@ def factorial_sum(num: int) -> int:
 def factorial(num: int) -> int:
     return 1 if num == 0 else num * factorial(num - 1)
 
-print(factorial_sum(4))
+factorial_sum(4)
