@@ -3,5 +3,4 @@
 def filter_palindromes(text_list: list[str]) -> list[str]:             
     return [text for text in text_list if text == text[::-1]]
 
-
 print(filter_palindromes(["kayak", "hello", "level", "world", "madam"]))

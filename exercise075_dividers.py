@@ -8,4 +8,4 @@ def dividers(num: int) -> list[int]:
               divs.add(num//n)
     return sorted(divs)
 
-print(dividers(12))
+dividers(12)

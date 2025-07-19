@@ -3,7 +3,5 @@
 def label_parity(nums: list[int]) -> list[str]:
     return ["even" if num % 2 == 0 else "odd" for num in nums]
 
-
-
 print(label_parity([1, 2, 3, 4, 5]))
 
