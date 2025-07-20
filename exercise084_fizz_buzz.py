@@ -5,7 +5,17 @@
 # Wynik: 1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz
 
 def fizz_buzz(num: int) -> list[str]:
+    elements = []
     for n in range(1, num + 1):
-        print(n)
+        if n % 3 == 0 and n % 5 == 0:
+            elements.append("FizzBuzz")
+        elif n % 3 == 0:
+            elements.append("Fizz")
+        elif n % 5 == 0:
+            elements.append("Buzz")
+        else:
+            elements.append(str(n))
+    return elements
+
 
 print(fizz_buzz(15))
