@@ -5,6 +5,6 @@
 from exercise066_factorial_sum import factorial
 
 def n_choose_k(n: int, k: int) -> int:
-    return int((factorial(n) / (factorial(k) * factorial(n - k))))
+    return (factorial(n) // (factorial(k) * factorial(n - k)))
 
 print(n_choose_k(5, 2))
