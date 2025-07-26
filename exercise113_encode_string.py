@@ -12,7 +12,6 @@ def encode_string(text: str) -> str:
             encoded += text[i - 1] + str(count)
             count = 1
     encoded += text[-1] + str(count)
-
     return encoded
 
 print(encode_string("aaabbc"))
