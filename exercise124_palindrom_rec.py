@@ -5,7 +5,6 @@ def palindrom_rec(text: str) -> bool:
         return True
     if text[0] != text[-1]:
         return False
-    
     return palindrom_rec(text[1:-1])
     
 print(palindrom_rec("kajak"))
